@@ -1,6 +1,34 @@
 
 // Everything you type after a "//" is a comment that you can put in your code.
 
+
+/**
+ *   Let's create a class for all animals.  The only thing it has is a variable for animal type.
+ */
+public class Animal {
+	String mAnimalType;
+	
+	// We don't need a Constructor here: i.e. we don't need a public Animal() {  ...  }  method
+	// When we know we won't be using an object directly like this, we can write it like this...
+	// public abstract class Animal {
+	// That means it's just an abstract thing.  You must create a subclass to do anything with it.
+	
+	// This sets the type of animal
+	// NOTE: "void" here means it doesn't return anything.
+	public void setAnimalType( String type ) {
+		mAnimalType = type;
+	}
+	
+	
+	// This returns the type of animal when you call it
+	// NOTE: "String" here means it returns a String object.
+	public String getAnimalType() {
+		return mAnimalType;
+	}
+}
+
+
+
 public class CatMaker {
 	public static void main(String []args){
 		System.out.println("Hello There, see these cats.");
@@ -31,7 +59,7 @@ public class CatMaker {
  *  the documentation.  It's the two stars that make it different.
  */
 
-class Cat {
+class Cat extends Animal {	// The Cat class is a subclass of the Animal class.
 	private String mName;	// This is a "variable" which contains a String.  We will use it to save the cat's name
 	
 	/**
@@ -42,7 +70,10 @@ class Cat {
 	 */
 	public Cat(String name){
 		System.out.println("Cat; " + name);
-		mName = name;		// save the cat's name to a 
+		mName = name;		// save the cat's name to the variable we have in the class.
+		
+		setAnimalType("Cat");	// The Cat class "inherits" the Animal class variables and methods.
+					// So we can use them here.
 	}
 	
 	/**

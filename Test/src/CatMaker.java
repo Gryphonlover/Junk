@@ -5,7 +5,7 @@
 /**
  *   Let's create a class for all animals.  The only thing it has is a variable for animal type.
  */
-public class Animal {
+class Animal {
 	String mAnimalType;
 	
 	// We don't need a Constructor here: i.e. we don't need a public Animal() {  ...  }  method

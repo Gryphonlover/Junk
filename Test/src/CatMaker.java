@@ -1,5 +1,74 @@
 
-// Everything you type after a "//" is a comment that you can put in your code.
+
+
+public class CatMaker {
+	
+	public static void main(String []args){
+		System.out.println("Hello There, see these cats.");
+		new Cat("Google");
+		new Cat("Casper");
+		// Let's save this Hershal cat that we're creating in a variable.
+		Cat x = new Cat("Hershal");	// "x" is like a container for holding Cat objects.
+		
+		System.out.println("This cat's name is " + x.getName() );
+		
+		String hershal = new String("Hershal");
+		if( x.getName() == hershal ) {
+			System.out.println("You probably won't see this printed out because...");
+		}
+		
+		if( x.getName().equals("Hershal")) {
+			System.out.println("...a String is an object");
+			// Just because two objects have the same value doesn't mean they're the same object.
+		}
+		
+		
+		
+		// Here's an interesting thing we can do.  We can create a container for Animals and then
+		// put Hershal into it because a cat extends Animal.
+		Animal y = x;
+		System.out.println("Our animal y is a " + y.getAnimalType());
+		
+		
+		
+		// We can "cast" an Animal to a Cat, but to be safe, we first make sure that y is a type of Cat.
+		// Then we use (Cat) to cast y into a Cat object before we can put it into a Cat container.
+		if( y instanceof Cat ) {
+			Cat z = (Cat) y;
+			System.out.println("After all that moving around, Hershal is still " + z.getName());
+		}
+		
+		
+		
+		// This is a "for" loop.  It executes the first section before doing anything.
+		// Then it always checks if the second section is true before executing each loop, otherwise it quits.
+		// It executes the third section every time it finishes a loop.
+		for( int i=0 ; i<5 ; i=i+1 ) {
+			System.out.println("i is " + i);
+			// It's typical to start with zero in a loop like this.
+		}
+		
+		
+		// Let's make an array of Cats.  [] means it's an array of zero or more items.
+		Cat[]  fourCats = {
+				new Cat("Cat Number Zero"),
+				new Cat("Cat Number One"),
+				new Cat("Cat Number Two"),
+				new Cat("Cat Number Three")
+		};
+		
+		// Let's see if we have all four Cats
+		for( int j=0; j<4; j++ ) {		// j++ is the same thing as saying j=j+1
+			System.out.println("Cat number " + j + " is named " + fourCats[j].getName() );
+		}
+		
+		
+		// Here's something REALLY fancy...
+		System.out.println("Going back to our Animal y, it holds an object of type " + y.getClass().getName() );
+	}
+	
+}
+
 
 
 /**
@@ -28,37 +97,6 @@ class Animal {
 }
 
 
-
-public class CatMaker {
-	public static void main(String []args){
-		System.out.println("Hello There, see these cats.");
-		new Cat("Google");
-		new Cat("Casper");
-		// Let's save this Hershal cat that we're creating in a variable.
-		Cat x = new Cat("Hershal");	// "x" is like a container for holding Cat objects.
-		
-		System.out.println("This cat's name is " x.getName() );
-		
-		if( x.getName() == "Hershal" ) {
-			System.out.println("You won't see this printed out because...");
-		}
-		
-		if( x.getName().equals("Hershal")) {
-			System.out.println("...a String is an object");
-			// Just because two objects have the same value doesn't mean they're the same object.
-		}
-	}
-}
-
-
-/*  Everything within these two markings is also a comment
-    and it can go across multiple lines */
-    
-/**
- *  This is a documentation type of comment.  There are tools which pull out these comments and put them into
- *  the documentation.  It's the two stars that make it different.
- */
-
 class Cat extends Animal {	// The Cat class is a subclass of the Animal class.
 	private String mName;	// This is a "variable" which contains a String.  We will use it to save the cat's name
 	
@@ -85,3 +123,6 @@ class Cat extends Animal {	// The Cat class is a subclass of the Animal class.
 		return mName;
 	}
 }
+
+
+
